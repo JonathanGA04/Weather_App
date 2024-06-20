@@ -53,6 +53,15 @@ public class MainActivity extends AppCompatActivity {
                 JSONObject jsonObject = new JSONObject(result);
                 String weatherInfo = jsonObject.getString("main");
                 weatherInfo = weatherInfo.replace("temp", "Temperature");
+                weatherInfo = weatherInfo.replace("feels_like", "Feels Like");
+                weatherInfo = weatherInfo.replace("temp_max", "Temperature Max");
+                weatherInfo = weatherInfo.replace("temp_main", "Temperature Min");
+                weatherInfo = weatherInfo.replace("pressure", "Pressure");
+                weatherInfo = weatherInfo.replace("humidity", "Humidity");
+                weatherInfo = weatherInfo.replace("{", "");
+                weatherInfo = weatherInfo.replace("}", "");
+                weatherInfo = weatherInfo.replace(",", "\n");
+                weatherInfo = weatherInfo.replace(":", ": ");
                 show.setText(weatherInfo);
             }catch (Exception e){
                 e.printStackTrace();
